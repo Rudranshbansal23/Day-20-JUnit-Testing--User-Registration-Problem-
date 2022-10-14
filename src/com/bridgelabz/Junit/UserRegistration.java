@@ -15,9 +15,8 @@ public class UserRegistration {
 		Matcher matcher = pattern.matcher(firstName);
 		return matcher.matches();
 	}
-
 	/*
-	 * Created a method to validate last name
+    Created a method to validate last name
 	 */
 	public boolean lastName(String lastName) {
 		String regex = "^[A-Z]{1}[a-z]{2,}$";
@@ -25,9 +24,8 @@ public class UserRegistration {
 		Matcher matcher = pattern.matcher(lastName);
 		return matcher.matches();
 	}
-
 	/*
-	 * Created a method to validate E-mail
+    Created a method to validate E-mail
 	 */
 	public boolean email(String email) {
 		String regex = "^[a-z0-9]{3,}+([_+-.][a-z0-9]{3,}+)*@[a-z0-9]+.[a-z]{2,3}+(.[a-z]{2,3}){0,1}$";
@@ -35,9 +33,8 @@ public class UserRegistration {
 		Matcher matcher = pattern.matcher(email);
 		return matcher.matches();
 	}
-
 	/*
-	 * Created a method to validate Mobile Number Format
+    Created a method to validate Mobile Number Format
 	 */
 	public boolean phoneNumber(String phoneNumber) {
 		String regex = "^[0-9]{2}\\s{1}[0-9]{10}$";
@@ -45,9 +42,8 @@ public class UserRegistration {
 		Matcher matcher = pattern.matcher(phoneNumber);
 		return matcher.matches();
 	}
-
 	/*
-	 * Created a method to validate password with minimum 8 character
+    Created a method to validate password with minimum 8 character
 	 */
 	public boolean password(String password) {
 		String regex = "^[0-9a-zA-Z!,@#$&*().]{8,}$";
@@ -55,9 +51,8 @@ public class UserRegistration {
 		Matcher matcher = pattern.matcher(password);
 		return matcher.matches();
 	}
-
 	/*
-	 * Created a method to validate password with atleast one upper case
+    Created a method to validate password with atleast one upper case
 	 */
 	public boolean passwordRule2(String password) {
 		String regex = "^(?=.*[A-Z]){1}(?=.*[a-z]).{8,}$";
@@ -65,4 +60,14 @@ public class UserRegistration {
 		Matcher matcher = pattern.matcher(password);
 		return matcher.matches();
 	}
+    /*
+    Created a method to validate password with atleast one numeric value
+    */
+    public boolean passwordRule3(String password) {
+        String regex = "^(?=.*[A-Z]){1}(?=.*[a-z])(?=.*[0-9]).{8,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+
 }
