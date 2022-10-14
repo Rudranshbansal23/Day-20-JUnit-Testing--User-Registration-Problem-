@@ -7,10 +7,12 @@ import org.junit.Test;
 
 public class UserRegistrationTest {
 	UserRegistration userRegistration;
+
 	@Before
 	public void before() {
 		userRegistration = new UserRegistration();
 	}
+
 	/**
 	 * Unit test for validating first name
 	 */
@@ -26,6 +28,7 @@ public class UserRegistrationTest {
 		boolean result = userRegistration.firstName("Utkarsh");
 		Assert.assertEquals(false, result);
 	}
+
 	/**
 	 * Unit test for validating last name
 	 */
@@ -41,6 +44,7 @@ public class UserRegistrationTest {
 		Assert.assertEquals(false, result);
 
 	}
+
 	/**
 	 * Unit test for validating email address
 	 */
@@ -55,6 +59,7 @@ public class UserRegistrationTest {
 		boolean result = userRegistration.email("abc()*@gmail.com");
 		Assert.assertEquals(false, result);
 	}
+
 	/**
 	 * Unit test for validating format of mobile number
 	 */
@@ -67,6 +72,21 @@ public class UserRegistrationTest {
 	@Test
 	public void givenPhoneNumber_WhenNotProper_ShouldReturnFlase() {
 		boolean result = userRegistration.phoneNumber("+91 7844999888");
+		Assert.assertEquals(false, result);
+	}
+
+	/**
+	 * Unit test for validating password with minimum 8 character
+	 */
+	@Test
+	public void givenPassword_WhenProper_ShouldReturnTrue() {
+		boolean result = userRegistration.password("password@123");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenPassword_WhenNotProper_ShouldReturnFalse() {
+		boolean result = userRegistration.password("psw@");
 		Assert.assertEquals(false, result);
 	}
 

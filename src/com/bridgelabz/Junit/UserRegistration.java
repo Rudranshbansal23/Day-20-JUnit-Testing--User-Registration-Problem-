@@ -46,4 +46,14 @@ public class UserRegistration {
 		return matcher.matches();
 	}
 
+	/*
+	 * Created a method to validate password with minimum 8 character
+	 */
+	public boolean password(String password) {
+		String regex = "^[0-9a-zA-Z!,@#$&*().]{8,}$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(password);
+		return matcher.matches();
+	}
+
 }
