@@ -25,7 +25,7 @@ public class UserRegistrationTest {
 
 	@Test
 	public void givenFirstName_WhenNotProper_ShouldReturnFlase() {
-		boolean result = userRegistration.firstName("utkarsh");
+		boolean result = userRegistration.firstName("Utkarsh");
 		Assert.assertEquals(false, result);
 	}
 
@@ -34,7 +34,7 @@ public class UserRegistrationTest {
 	 */
 	@Test
 	public void givenLastName_WhenProper_ShouldReturnTrue() {
-		boolean result = userRegistration.lastName("Mishra");
+		boolean result = userRegistration.lastName("mishra");
 		Assert.assertEquals(true, result);
 	}
 
@@ -43,6 +43,21 @@ public class UserRegistrationTest {
 		boolean result = userRegistration.lastName("mishra");
 		Assert.assertEquals(false, result);
 
+	}
+
+	/**
+	 * Unit test for validating email address
+	 */
+	@Test
+	public void givenEmail_WhenProper_ShouldReturnTrue() {
+		boolean result = userRegistration.email("abc@gmail.com.com");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenEmail_WhenNotProper_ShouldReturnFalse() {
+		boolean result = userRegistration.email("abc()*@gmail.com");
+		Assert.assertEquals(false, result);
 	}
 
 }
