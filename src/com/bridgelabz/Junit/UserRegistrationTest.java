@@ -90,4 +90,19 @@ public class UserRegistrationTest {
 		Assert.assertEquals(false, result);
 	}
 
+	/**
+	 * Unit test for validating password with atleast one upper case
+	 */
+	@Test
+	public void givenPasswordRule2_WhenProper_ShouldReturnTrue() {
+		boolean result = userRegistration.passwordRule2("passWord@123");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenPasswordRule2_WhenNotProper_ShouldReturnFalse() {
+		boolean result = userRegistration.passwordRule2("psw@");
+		Assert.assertEquals(false, result);
+	}
+
 }
